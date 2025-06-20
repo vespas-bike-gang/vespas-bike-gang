@@ -54,7 +54,7 @@ function HeroPost({
   return (
     <section>
       <div className="mb-8 md:mb-16">
-        <CoverImage title={title} slug={slug} url={coverImage.url} />
+        <CoverImage title={title} slug={slug} url={coverImage?.url || 'olá!'} />
       </div>
       <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
@@ -79,8 +79,8 @@ function HeroPost({
 export default async function Page() {
   const { isEnabled } = draftMode();
   const allPosts = await getAllPosts(isEnabled);
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
+  const heroPost = allPosts ? allPosts[0] : {}
+  const morePosts = allPosts?.slice(1);
 
   return (
     <div className="container mx-auto px-5">
