@@ -6,7 +6,7 @@
 
 ## Tecnologias do projeto
 Esse projeto é um site intucional criado em React com o *framework* Nextjs e usa o Contentful como plataforma de *CMS* (content managment system) para reutilizar componentes, criar páginas e importar conteúdo.
-Como esse projeto foi construído usando Nextjs, o deploy dele pode ser feito na Vercel **Deploy pendente**.
+Como esse projeto foi construído usando Nextjs, o deploy está na [Vercel](https://vespas-bike-gang.vercel.app/).
 Em caso de dúvida, você pode consultar [a documentação criada para o template desse projeto](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful) ou a [documentação para Nextjs criada pela Contentful](https://www.contentful.com/nextjs-starter/)
 
 ### Bibliotecas e dependências
@@ -28,7 +28,7 @@ Em caso de dúvida, você pode consultar [a documentação criada para o templat
 
 ### Ambientes
 - **Desenvolvimento:** [localhost:3000](http://localhost:3000)
-- **Ambiente de produção pendente**
+- **Ambiente de produção:** [vercel](https://vespas-bike-gang.vercel.app/)
 - **Ambiente de rascunho (draft):** Para consulta de dados sem precisar publicar as alterações no CMS
 ``` bash
 http://localhost:3000/api/draft?secret=<CONTENTFUL_PREVIEW_SECRET>&slug={entry.fields.slug}
