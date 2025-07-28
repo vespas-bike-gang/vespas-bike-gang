@@ -39,7 +39,7 @@ http://localhost:3000/api/draft?secret=<CONTENTFUL_PREVIEW_SECRET>&slug={entry.f
 O projeto é baseado em 2 *branchs* permanentes (`main` e `release/*`) e as *branchs* temporárias (`feature`, `fix`, `config` e `change`). As *branchs* permanentes tem por intuito marcar os *milestones* do site, servindo como referência das versões existentes do site. Essas *branchs* não podem ser alteradas diretamente, mas sim via *pull requests* que devem ser devidamente revisados e aprovados.
 Já as *branchs* temporárias, devem ser criadas localmente e servem para conter as alterações do site que posteriormente serão *mergeadas* nas *branchs* permanentes.
 
-![Gitflow: branch de mudanças - branch de produção - branch de release](./documentation/git-flow.png)
+![Gitflow: branch de mudanças - branch de produção - branch de release](./public/documentation/git-flow.png)
 
 ### Tipos de alteração
 Os commits e *branchs* tem tipos que indicam como a alteração afeta o projeto e devem estar presentes nas descrições de ambos, de forma a deixar claro o propósito da alteração.
