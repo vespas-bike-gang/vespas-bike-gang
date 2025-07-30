@@ -1,5 +1,11 @@
 .navigation {
     & {
-        background-color: red;
+        background-color: var(--dark);
+    }
+
+    &__logo {
+        width: 54px;
+        height: 40px;
+        display: flex;
     }
 }
