@@ -1,0 +1,43 @@
+@use '../../../design-system/00-style/breakpoints' as breakpoints;
+
+.navigation {
+    & {  
+        &--closed {
+            @media (max-width: breakpoints.$breakpoint-lg) {
+                display: none;
+            }
+        }
+    }
+
+    &__list {
+        margin-top: 1.25rem;
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            margin-top: 0;
+            display: flex;
+            gap: 2.5rem;
+        }
+    }
+    
+    &__item {
+        padding-top: 2.5rem;
+        
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            padding: 0;
+        }
+    }
+
+    &__link {
+        font-size: 1.875rem;
+        font-weight: 900;
+        color: var(--light);
+        text-decoration: none;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            font-size: 0.75rem;
+        }
+
+        &:hover {
+            color: var(--rose)
+        }
+    }
+}
