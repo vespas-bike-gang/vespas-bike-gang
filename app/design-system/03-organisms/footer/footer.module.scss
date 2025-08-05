@@ -1,0 +1,31 @@
+@use '../../00-style/breakpoints' as breakpoints;
+
+.footer {
+    & {
+        background-color: var(--dark);
+    }
+
+    &__title {
+        font-size: 2rem;
+        font-weight: 900;
+        color: var(--light);
+        
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__nav {
+
+    }
+
+    &__list {
+    }
+
+    &__item {
+
+    }
+
+    &__link {
+    }
+}
