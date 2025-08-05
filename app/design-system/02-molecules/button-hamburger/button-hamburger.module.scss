@@ -1,0 +1,11 @@
+@use '../../../design-system/00-style/breakpoints' as breakpoints;
+
+.button-hamburger {
+    & {
+        &--only-mobile {
+            @media (min-width: breakpoints.$breakpoint-lg) {
+                display: none;
+            }
+        }
+    }
+}

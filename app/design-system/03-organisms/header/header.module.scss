@@ -1,0 +1,35 @@
+@use '../../00-style/breakpoints' as breakpoints;
+
+.header {
+    $padding-height: 1.25rem;
+
+    & {
+        background-color: var(--dark);
+        padding: $padding-height 1.5rem;
+        transition: height ease-out 0.5s;
+        height: 40px;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &--opened {
+            height: calc(100dvh - 2*($padding-height));
+            overflow: hidden;
+        }
+}
+
+    &__logo {
+        width: 54px;
+        height: 40px;
+        display: flex;
+    }
+
+    &__main { 
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
+}

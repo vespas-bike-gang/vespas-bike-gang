@@ -1,2 +1,15 @@
 @use './design-system/00-style/reset.scss';
 @use './design-system/00-style/tokens.scss';
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+button, a {
+    cursor: pointer;
+}
+
+button {
+    background: none;
+    border: none;
+}
