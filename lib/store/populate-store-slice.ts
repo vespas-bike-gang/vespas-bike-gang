@@ -1,9 +1,12 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { getEntriesByTitle } from '@/app/lib/contentful'
+import { getEntriesByTitle } from '@/lib/contentful'
 
 export const fetchData = createAsyncThunk('data/fetch', async () => {
-    const response = await getEntriesByTitle({content_type: 'all', "fields.title": 'all'})
-    return response.data
+    const response = await getEntriesByTitle({
+                    "content_type": 'navigationMenu',
+                    "fields.title": 'Footer Menu'
+    })
+    return response
 })
 
 type Data = {

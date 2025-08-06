@@ -1,11 +1,11 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useAppSelector } from '@/app/lib/store/hooks'
+import { useAppSelector } from '@/lib/store/hooks'
 
 import styles from './footer.module.scss'
 
-import NavigationIcon from "../../02-molecules/navigation-icon/navigation-icon"
-import { LogoHorizontal } from '../../01-atoms/icons'
+import NavigationIcon from "@/app/design-system/02-molecules/navigation-icon/navigation-icon"
+import { LogoHorizontal } from '@/app/design-system/01-atoms/icons'
 
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
 

@@ -1,7 +1,7 @@
 import "./globals.scss";
 
-import StoreProvider from "@/app/lib/store/store-provider";
-import ClientDataLoader from "./lib/store/client-data-loader";
+import StoreProvider from "@/lib/store/store-provider";
+import ClientWrapper from "@/lib/store/client-wrapper";
 
 export const metadata = {
   title: 'Vespas - Bike Gang',
@@ -12,13 +12,14 @@ export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}) { 
   return (
     <html lang="pt-BR">
       <body>
         <StoreProvider>
-          <ClientDataLoader/>
-          <main>{children}</main>
+          <ClientWrapper>
+            <main>{children}</main>
+          </ClientWrapper>
         </StoreProvider>
       </body>
     </html>

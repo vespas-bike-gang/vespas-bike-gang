@@ -1,7 +1,7 @@
 'use client'
-import { useAppDispatch } from "./hooks"
+import { useAppDispatch } from '@/lib/store/hooks'
 import { useEffect } from "react"
-import { fetchData } from "./populate-store-slice"
+import { fetchData } from "@/lib/store/populate-store-slice"
 
 export default function ClientDataLoader() {
     const dispatch = useAppDispatch()

@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { useAppSelector } from '@/app/lib/store/hooks'
+import { useAppSelector } from '@/lib/store/hooks'
 
 import styles from './header.module.scss'
 

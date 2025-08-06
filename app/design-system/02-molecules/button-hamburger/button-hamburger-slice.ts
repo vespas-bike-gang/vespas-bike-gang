@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import type { RootState } from '@/app/lib/store/store'
+import type { RootState } from '@/lib/store/store'
 
 export type ButtonHamburger = {
     show: boolean,

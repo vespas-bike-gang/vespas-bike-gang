@@ -1,4 +1,4 @@
-import * as contentful from '@/app/lib/contentful'
+import * as contentful from '@/lib/contentful'
 import { NextResponse } from 'next/server'
 
 export async function POST(request: Request) {

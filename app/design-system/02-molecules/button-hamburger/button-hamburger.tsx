@@ -1,9 +1,9 @@
-import { useAppDispatch , useAppSelector } from '@/app/lib/store/hooks'
+import { useAppDispatch , useAppSelector } from '@/lib/store/hooks'
 import { setShow } from './button-hamburger-slice'
 
 import styles from './button-hamburger.module.scss'
 
-import { IconHamburgerMenu, IconClose } from '../../01-atoms/icons'
+import { IconHamburgerMenu, IconClose } from '@/app/design-system/01-atoms/icons'
 
 type Props = {
     ariaLabel?: {
