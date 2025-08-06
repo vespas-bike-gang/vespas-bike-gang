@@ -1,4 +1,4 @@
-import { useAppDispatch , useAppSelector } from '@/app/lib/hooks'
+import { useAppDispatch , useAppSelector } from '@/app/lib/store/hooks'
 import { setShow } from './button-hamburger-slice'
 
 import styles from './button-hamburger.module.scss'

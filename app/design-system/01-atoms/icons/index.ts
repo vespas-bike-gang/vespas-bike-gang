@@ -4,3 +4,7 @@ export { default as LogoSymbol } from "./logo-symbol";
 export { default as LogoVertical } from "./logo-vertical";
 export { default as IconHamburgerMenu } from "./icon-hamburger-menu";
 export { default as IconClose } from "./icon-close";
+export { default as LogoFacebook } from './logo-facebook';
+export { default as LogoInstagram } from './logo-instagram';
+export { default as LogoStrava } from './logo-strava';
+export { default as LogoYoutube } from './logo-youtube';

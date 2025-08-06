@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { useAppSelector } from '@/app/lib/store/hooks'
 
 import styles from './footer.module.scss'
 
@@ -9,7 +10,19 @@ import { LogoHorizontal } from '../../01-atoms/icons'
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
 
 export default function Footer() {
-    const [data, setData] = useState<NavigationMenuItemFields[]>([])
+    const [data2, setData] = useState<NavigationMenuItemFields[]>([])
+    const [title, setTitle] = useState<string>()
+
+    const data = useAppSelector(state => state.data)
+
+    console.log(data)
+
+    const classList = {
+        nav: styles['footer__nav'],
+        list: styles['footer__list'],
+        item: styles['footer__item'],
+        link: styles['footer__link']
+    }
     
     useEffect(() => {
             const getData = async () => {
@@ -29,24 +42,23 @@ export default function Footer() {
                 }
                 
                 const result = await response.json()
-                setData(result.itens)
-            }
-    
+                const links = result.itens.filter((link: NavigationMenuItemFields) => {
+                    if(link.fields.text) {
+                        setTitle(link.fields.text)
+                        return
+                    }
+                    return link
+                })
+                setData(links)
+            }    
             getData()
         }, [])
 
-    const classList = {
-        nav: styles['footer__nav'],
-        list: styles['footer__list'],
-        item: styles['footer__item'],
-        link: styles['footer__link']
-    }
-
     return (
         <footer className={styles['footer']}>
-            <h2 className={styles['footer__title']}>Emancipação Feminina sem freios</h2>
-            <div>
-                <NavigationIcon data={data}></NavigationIcon>
+            <h2 className={styles['footer__title']} dangerouslySetInnerHTML={{ __html: title || ''}}></h2>
+            <div className={styles['footer__container']}>
+                <NavigationIcon data={data2} classList={classList}></NavigationIcon>
                 <LogoHorizontal width={98} height={32} color="#ffffff"></LogoHorizontal>
             </div>
         </footer>

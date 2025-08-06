@@ -1,0 +1,16 @@
+type Props = {
+    width?: string | number,
+    height?: string | number,
+    color?: string
+}
+
+export default function LogoStrava({ width = 18, height = 24, color = '#ffffff' }: Props) {
+    return (
+        <span className="icon">
+            <svg width={width} height={height} viewBox="0 0 18 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12.387 17.944L10.298 13.828H7.23301L12.387 24L17.537 13.828H14.471M7.46301 8.229L10.299 13.827H14.471L7.46301 0L0.463013 13.828H4.63201"
+                fill={color} />
+            </svg>
+        </span>
+    )
+}

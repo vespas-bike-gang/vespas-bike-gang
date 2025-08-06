@@ -8,11 +8,15 @@
         padding: $padding-height 1.5rem;
         transition: height ease-out 0.5s;
         height: 40px;
+        position: fixed;
+        left: 0;
+        right: 0;
 
         @media(min-width: breakpoints.$breakpoint-lg) {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: static;
         }
 
         &--opened {

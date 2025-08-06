@@ -13,3 +13,7 @@ button {
     background: none;
     border: none;
 }
+
+span svg path:hover {
+    fill: var(--rose);
+}
