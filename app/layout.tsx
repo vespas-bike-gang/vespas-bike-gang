@@ -1,14 +1,12 @@
 import "./globals.scss";
 
+import StoreProvider from "@/app/lib/store/store-provider";
+import ClientDataLoader from "./lib/store/client-data-loader";
+
 export const metadata = {
   title: 'Vespas - Bike Gang',
   description: 'Qualquer mina, qualquer bike',
 };
-
-// const roboto = Roboto({
-//   variable: "--font-roboto-sans",
-//   subsets: ["latin"],
-// });
 
 export default function RootLayout({
   children,
@@ -18,9 +16,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <section className="min-h-screen">
+        <StoreProvider>
+          <ClientDataLoader/>
           <main>{children}</main>
-        </section>
+        </StoreProvider>
       </body>
     </html>
   );
