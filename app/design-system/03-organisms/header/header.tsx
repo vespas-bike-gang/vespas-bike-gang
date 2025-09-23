@@ -11,7 +11,7 @@ import Navigation from '@/app/design-system/02-molecules/navigation/navigation'
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
 
 export default function Header () {
-    const [data, setData] = useState<NavigationMenuItemFields[]>([{fields: { label: "Home", href: "/" }, contentTypeId: "link"}])
+    const [navigationItems, setNavigationItems] = useState<NavigationMenuItemFields[]>([{fields: { label: "Home", href: "/" }, contentTypeId: "link"}])
     const isMenuOpened = useAppSelector((state) => state.buttonHamburger.show)
 
     useEffect(() => {
@@ -32,7 +32,7 @@ export default function Header () {
             }
             
             const result = await response.json()
-            setData(result.itens)
+            setNavigationItems(result.itens)
         }
 
         getData()
@@ -48,7 +48,7 @@ export default function Header () {
             </div>
             <Navigation
                 show={isMenuOpened}
-                data={data}>
+                data={navigationItems}>
             </Navigation>
         </header>
     )
