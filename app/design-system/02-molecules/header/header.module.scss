@@ -8,9 +8,10 @@
         padding: $padding-height 1.5rem;
         transition: height ease-out 0.5s;
         height: 40px;
-        position: fixed;
+        position: sticky;
         left: 0;
         right: 0;
+        top: 0;
 
         @media(min-width: breakpoints.$breakpoint-lg) {
             display: flex;

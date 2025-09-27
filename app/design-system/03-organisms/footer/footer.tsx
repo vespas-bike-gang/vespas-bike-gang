@@ -1,6 +1,4 @@
-'use client'
-import { useState, useEffect } from 'react'
-import { useAppSelector } from '@/lib/store/hooks'
+import { getEntriesByTitle } from '@/lib/contentful'
 
 import styles from './footer.module.scss'
 
@@ -9,46 +7,28 @@ import { LogoHorizontal } from '@/app/design-system/01-atoms/icons'
 
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
 
-export default function Footer() {
-    const [links, setLinks] = useState<NavigationMenuItemFields[]>([])
-    const [title, setTitle] = useState<string>()
-
+export default async function Footer() {
     const classList = {
         nav: styles['footer__nav'],
         list: styles['footer__list'],
         item: styles['footer__item'],
         link: styles['footer__link']
     }
+
+    const body = {
+        "content_type": 'navigationMenu',
+        "fields.title": 'Footer Menu'
+    }
+    const response = await getEntriesByTitle(body)
     
-    useEffect(() => {
-        const getData = async () => {
-            const body = {
-                "content_type": 'navigationMenu',
-                "fields.title": 'Footer Menu'
-            }   
-            
-            const response = await fetch('/api/contentful', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body)
-            })
-            
-            if (!response.ok) {
-                return console.log('Error on loading navigation menu')
-            }
-            
-            const result = await response.json()
-            const links = result.itens.filter((link: NavigationMenuItemFields) => {
-                if(link.fields.text) {
-                    setTitle(link.fields.text)
-                    return
-                }
-                return link
-            })
-            setLinks(links)
-        }    
-        getData()
-    }, [])
+    let title = ''
+    const links = response.itens.filter((link: NavigationMenuItemFields) => {
+          if(link.fields.text) {
+            title = link.fields.text
+          return
+        }
+        return link
+    })
 
     return (
         <footer className={styles['footer']}>
