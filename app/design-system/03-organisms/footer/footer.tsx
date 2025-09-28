@@ -1,4 +1,4 @@
-import { getEntriesByTitle } from '@/lib/contentful'
+import { getEntriesByTitle } from '@/lib/contentful/contentful'
 
 import styles from './footer.module.scss'
 

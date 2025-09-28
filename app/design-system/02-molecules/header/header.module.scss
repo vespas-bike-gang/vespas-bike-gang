@@ -15,8 +15,7 @@
 
         @media(min-width: breakpoints.$breakpoint-lg) {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             position: static;
         }
 
@@ -24,7 +23,18 @@
             height: calc(100dvh - 2*($padding-height));
             overflow: hidden;
         }
-}
+    }
+
+    &__content {
+        width: 100%;
+        max-width: breakpoints.$breakpoint-max-width-lg;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
 
     &__logo {
         width: 54px;

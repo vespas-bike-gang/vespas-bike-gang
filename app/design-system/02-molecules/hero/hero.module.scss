@@ -1,0 +1,72 @@
+@use '../../00-style/breakpoints' as breakpoints;
+
+.hero {
+    background-color: var(--dark);
+    color: var(--light);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+
+    @media(min-width: breakpoints.$breakpoint-lg) {
+        padding-top: 2.5rem;
+    }
+    
+    &__content {
+        max-width: breakpoints.$breakpoint-max-width-lg;
+    }
+    
+    &__title {
+        font-weight: 1000;
+        text-align: center;
+        font-size: 2.125rem;
+        margin-bottom: 1.5rem;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            font-size: 6.43rem;
+            margin-bottom: 2rem;
+        }
+    }
+    
+    &__description-wrapper {
+        position: relative;
+        width: 1120px;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-bottom: 1.5rem;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__description {
+          display: flex;
+          width: max-content;
+          animation: scroll 20s linear infinite;
+          font-weight: 400;
+          font-size: 1.125rem;
+
+          @media(min-width: breakpoints.$breakpoint-lg) {
+            font-size: 1.75rem;
+        }
+    }
+
+    &__description-block {
+        white-space: nowrap;
+    }
+
+    &__description-emphasis {
+        font-weight: 600;
+    }
+
+    @keyframes scroll {
+        from {
+            transform: translateX(0);
+        }
+        to {
+            transform: translateX(-100%);
+        }
+}
+}

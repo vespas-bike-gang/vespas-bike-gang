@@ -1,6 +1,6 @@
 import styles from './navigation.module.scss'
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
-import { getEntriesByTitle } from '@/lib/contentful'
+import { getEntriesByTitle } from '@/lib/contentful/contentful'
 
 type Props = {
     show: boolean,

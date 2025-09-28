@@ -18,12 +18,14 @@ export default function Header({ navigationOpened, navigationClosed }: HeaderPro
         <header className={`${styles['header']}
                          ${isMenuOpened ? styles['header--opened'] : styles['header--closed']}
                       `}>
-            <div className={styles['header__main']}>
-                <LogoSymbol color="#ffffff" width="54" height="40"></LogoSymbol>
-                <ButtonHamburger onlyMobile={true}></ButtonHamburger>
+            <div className={styles['header__content']}>
+                <div className={styles['header__main']}>
+                    <LogoSymbol color="#ffffff" width="54" height="40"></LogoSymbol>
+                    <ButtonHamburger onlyMobile={true}></ButtonHamburger>
+                </div>
+                {isMenuOpened && navigationOpened}
+                {!isMenuOpened && navigationClosed}
             </div>
-            {isMenuOpened && navigationOpened}
-            {!isMenuOpened && navigationClosed}
         </header>
     )
 }
