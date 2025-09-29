@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   images: {
-    loader: "custom",
+    remotePatterns: [new URL('https://images.ctfassets.net/**')],
   },
-};
+}

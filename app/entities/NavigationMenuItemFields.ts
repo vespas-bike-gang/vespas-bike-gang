@@ -1,7 +1,9 @@
 export interface NavigationMenuItemFields {
     fields: {
-        label: string;
-        href: string;
+        title?: string;
+        text?: string;
+        label?: string;
+        href?: string;
     }
     contentTypeId: string
 }

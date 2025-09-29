@@ -4,13 +4,11 @@ import buttonHamburgerReducer from '@/app/design-system/02-molecules/button-hamb
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      buttonHamburger: buttonHamburgerReducer
-    }
+      buttonHamburger: buttonHamburgerReducer,
+    },
   })
 }
 
-// Infer the type of makeStore
 export type AppStore = ReturnType<typeof makeStore>
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<AppStore['getState']>
 export type AppDispatch = AppStore['dispatch']

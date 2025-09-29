@@ -1,40 +1,13 @@
-'use client'
-import { useState, useEffect } from 'react'
+import { getEntriesByTitle } from '@/lib/contentful/contentful'
 
 import styles from './footer.module.scss'
 
-import NavigationIcon from "../../02-molecules/navigation-icon/navigation-icon"
-import { LogoHorizontal } from '../../01-atoms/icons'
+import NavigationIcon from "@/app/design-system/02-molecules/navigation-icon/navigation-icon"
+import { LogoHorizontal } from '@/app/design-system/01-atoms/icons'
 
 import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
 
-export default function Footer() {
-    const [data, setData] = useState<NavigationMenuItemFields[]>([])
-    
-    useEffect(() => {
-            const getData = async () => {
-                const body = {
-                    "content_type": 'navigationMenu',
-                    "fields.title": 'Footer Menu'
-                }   
-                
-                const response = await fetch('/api/contentful', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(body)
-                })
-                
-                if (!response.ok) {
-                    return console.log('Error on loading navigation menu')
-                }
-                
-                const result = await response.json()
-                setData(result.itens)
-            }
-    
-            getData()
-        }, [])
-
+export default async function Footer() {
     const classList = {
         nav: styles['footer__nav'],
         list: styles['footer__list'],
@@ -42,11 +15,26 @@ export default function Footer() {
         link: styles['footer__link']
     }
 
+    const body = {
+        "content_type": 'navigationMenu',
+        "fields.title": 'Footer Menu'
+    }
+    const response = await getEntriesByTitle(body)
+    
+    let title = ''
+    const links = response.itens.filter((link: NavigationMenuItemFields) => {
+          if(link.fields.text) {
+            title = link.fields.text
+          return
+        }
+        return link
+    })
+
     return (
         <footer className={styles['footer']}>
-            <h2 className={styles['footer__title']}>Emancipação Feminina sem freios</h2>
-            <div>
-                <NavigationIcon data={data}></NavigationIcon>
+            <h2 className={styles['footer__title']} dangerouslySetInnerHTML={{ __html: title || ''}}></h2>
+            <div className={styles['footer__container']}>
+                <NavigationIcon data={links} classList={classList}></NavigationIcon>
                 <LogoHorizontal width={98} height={32} color="#ffffff"></LogoHorizontal>
             </div>
         </footer>
