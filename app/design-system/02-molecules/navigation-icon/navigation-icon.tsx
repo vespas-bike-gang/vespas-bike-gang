@@ -1,10 +1,10 @@
 import styles from './navigation-icon.module.scss'
 
-import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
+import { NavigationMenuItemFieldsInterface } from '@/app/entities/NavigationMenuItemFieldsInterface'
 import { LogoFacebook, LogoInstagram, LogoStrava, LogoYoutube } from '@/app/design-system/01-atoms/icons'
 
 type Props = {
-    data: NavigationMenuItemFields[],
+    data: NavigationMenuItemFieldsInterface[],
     classList: {
         nav: string | Element,
         list: string | Element,
@@ -32,7 +32,7 @@ export default function NavigationIcon({data, classList}: Props) {
     return (
         <nav className={`${styles['navigation-icon']} ${classList}`}>
             <ol className={styles['navigation-icon__list']}>
-                { data.map((entry: NavigationMenuItemFields, index: string | number) => (
+                { data.map((entry: NavigationMenuItemFieldsInterface, index: string | number) => (
                     <li key={index} className={styles['navigation-icon__item']}>
                         <a
                             href={entry.fields.href}

@@ -5,7 +5,7 @@ import styles from './footer.module.scss'
 import NavigationIcon from "@/app/design-system/02-molecules/navigation-icon/navigation-icon"
 import { LogoHorizontal } from '@/app/design-system/01-atoms/icons'
 
-import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
+import { NavigationMenuItemFieldsInterface } from '@/app/entities/NavigationMenuItemFieldsInterface'
 
 export default async function Footer() {
     const classList = {
@@ -22,7 +22,7 @@ export default async function Footer() {
     const response = await getEntriesByTitle(body)
     
     let title = ''
-    const links = response.itens.filter((link: NavigationMenuItemFields) => {
+    const links = response.itens.filter((link: NavigationMenuItemFieldsInterface) => {
           if(link.fields.text) {
             title = link.fields.text
           return

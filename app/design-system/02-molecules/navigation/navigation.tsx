@@ -1,5 +1,5 @@
 import styles from './navigation.module.scss'
-import { NavigationMenuItemFields } from '@/app/entities/NavigationMenuItemFields'
+import { NavigationMenuItemFieldsInterface } from '@/app/entities/NavigationMenuItemFieldsInterface'
 import { getEntriesByTitle } from '@/lib/contentful/contentful'
 
 type Props = {
@@ -19,7 +19,7 @@ export default async function Navigation({ show, classNameList, menuType }: Prop
         "fields.title": menuType
     }
     const response = await getEntriesByTitle(body)
-    const navigationItems:NavigationMenuItemFields[] = response.itens
+    const navigationItems:NavigationMenuItemFieldsInterface[] = response.itens
 
     return (
         <nav className={`${styles['navigation']}
@@ -27,7 +27,7 @@ export default async function Navigation({ show, classNameList, menuType }: Prop
                          ${classNameList?.nav}
                        `}>
             <ol className={`${styles['navigation__list']} ${classNameList?.list}`}>
-                { navigationItems.map((entry: NavigationMenuItemFields, index: string | number) => (
+                { navigationItems.map((entry: NavigationMenuItemFieldsInterface, index: string | number) => (
                     <li key={index} className={`${styles['navigation__item']} ${classNameList?.item}`}>
                         <a href={entry.fields.href} className={`${styles['navigation__link']} ${classNameList?.link}`}>
                             {entry.fields.label}
