@@ -1,10 +1,10 @@
 import styles from './hero.module.scss'
 
 import Image from 'next/image'
-import { getEntriesByTitle, getSpecifImage } from '../../../../lib/contentful/contentful'
+import { getEntriesByTitle, getAssetById } from '../../../../lib/contentful/contentful'
 
 export default async function Hero() {
-    const photo = await getSpecifImage('7kFoQhR5Z73TamQJYj9Lxx');
+    const photo = await getAssetById('7kFoQhR5Z73TamQJYj9Lxx');
     const heroPhoto = `https:${photo.file.url}`
     const alternativeText = photo.description || 'Image de um grupo de ciclistas mulheres sorrindo para a camera com o texto "Qualquer mina, qualquer bike"'
 

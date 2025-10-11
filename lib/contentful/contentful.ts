@@ -31,10 +31,26 @@ export async function getEntriesByTitle(requestBody: EntriesQueries<Entities.Get
  * @returns assets: Promise <Error | Object>
  */
 
-export async function getSpecifImage(requestPhoto: string): Promise<any> {
+export async function getAssetById(requestPhoto: string): Promise<any> {
     try {
         const assets = await client.getAsset(requestPhoto)
         return assets.fields
+    } catch (error) {
+        console.error('Error fetching assets', error);
+        //TODO: Adicionar tratamento de erro pelo redux
+    }
+}
+
+/**
+ * Gets entry from ID
+ * @param entryId: string
+ * @returns assets: Promise <Error | Object>
+ */
+
+export async function getEntryById(entryId: string): Promise<any> {
+    try {
+        const entry = await client.getEntry(entryId)
+        return entry.fields
     } catch (error) {
         console.error('Error fetching assets', error);
         //TODO: Adicionar tratamento de erro pelo redux
