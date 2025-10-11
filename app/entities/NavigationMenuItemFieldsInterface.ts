@@ -1,4 +1,4 @@
-export interface NavigationMenuItemFields {
+export interface NavigationMenuItemFieldsInterface {
     fields: {
         title?: string;
         text?: string;

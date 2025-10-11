@@ -1,7 +1,8 @@
-export interface BlockTitleDescriptionImageFields {
+import { ImageInterface } from "./ImageInterface"
+export interface BlockTitleDescriptionImageFieldsInterface {
     fields: {
         heading?: string;
-        images?: string | string[];
+        images?: ImageInterface;
         description?: string;
         label?: string;
         href?: string;
