@@ -3,6 +3,7 @@ import Footer from '@/app/design-system/03-organisms/footer/footer'
 import Hero from './design-system/02-molecules/hero/hero'
 
 import { useAppSelector } from '@/lib/store/hooks'
+import BlockTextImageLink from './design-system/02-molecules/block-text-image-link/block-text-image-link';
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <HeaderNavigation></HeaderNavigation>
         <main>
           <Hero></Hero>
+          <BlockTextImageLink></BlockTextImageLink>
         </main>
         <Footer></Footer>
       </>

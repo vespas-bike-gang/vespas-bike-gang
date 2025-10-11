@@ -1,0 +1,64 @@
+@use '../../00-style/breakpoints' as breakpoints;
+
+.block-text-image-link {
+    & {
+        padding: 5rem 1.5rem;
+        max-width: breakpoints.$breakpoint-max-width-lg;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    &__text-container {
+        max-width: 358px;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    &__title {
+        font-size: 2rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            font-size: 2.5rem;       
+        }
+    }
+
+    &__link {
+        text-transform: uppercase;
+        padding: 1rem 1.5rem;
+        border: 3px solid var(--rose);
+        font-weight: 900;
+        width: 100%;
+        max-width: max-content;
+        text-decoration: none;
+        color: var(--dark)
+    }
+
+    &__images-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    &__image:first-child {
+        margin: auto 0 0 auto;
+    }
+
+    &__image:nth-child(2) {
+        margin: auto auto 0 0;
+    }
+
+    &__image:nth-child(3) {
+        margin: 0 0 auto auto;
+    }
+
+    &__image:last-child {
+        margin: 0 auto auto 0;
+    }
+
+
+}
