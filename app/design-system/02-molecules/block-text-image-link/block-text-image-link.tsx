@@ -6,13 +6,23 @@ import Image from 'next/image'
 
 export default async function BlockTextImageLink() {
     const blockData = await getEntryById('2D1j2eRKFCeG4l2H0S6D24')
-    const photos = blockData.images.map((image: ImageInterface) => {
-        return {
+    const photosLeft = [] as ImageFormattedInterface[]
+    const photosRight = [] as ImageFormattedInterface[]
+    blockData.images.forEach((image: ImageInterface, index: number) => {
+        const photoData =  {
             url: `https:${image.fields.file.url}`,
             alt: image.fields.description,
             height: image.fields.file.details.image.height,            
             width: image.fields.file.details.image.width
         }
+
+        if(index % 2 === 0){
+            photosLeft.push(photoData)
+            return
+        }
+
+        photosRight.push(photoData)
+        return
     })
 
     return (
@@ -31,15 +41,29 @@ export default async function BlockTextImageLink() {
                 </a>
             </div>
             <div className={styles['block-text-image-link__images-container']}>
-                { photos.map((photo: ImageFormattedInterface, index: number) => (
-                    <Image
-                        key={index}
-                        className={styles['block-text-image-link__image']}
-                        width={photo.width}
-                        height={photo.height}
-                        alt={photo.alt}
-                        src={photo.url}/>
-                )) }
+                <div className={styles['block-text-image-link__images-column']}>
+                    { photosLeft.map((photo: ImageFormattedInterface, index: number) => (
+                        <Image
+                            key={index}
+                            className={styles['block-text-image-link__image']}
+                            width={photo.width}
+                            height={photo.height}
+                            alt={photo.alt}
+                            src={photo.url}/>
+                    )) }
+                </div>
+
+                <div className={styles['block-text-image-link__images-column']}>
+                    { photosRight.map((photo: ImageFormattedInterface, index: number) => (
+                        <Image
+                            key={index}
+                            className={styles['block-text-image-link__image']}
+                            width={photo.width}
+                            height={photo.height}
+                            alt={photo.alt}
+                            src={photo.url}/>
+                    )) }
+                </div>
             </div>
         </section>
     )

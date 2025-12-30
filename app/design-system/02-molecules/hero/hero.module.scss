@@ -16,7 +16,9 @@
     }
     
     &__content {
-        max-width: breakpoints.$breakpoint-max-width-lg;
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            max-width: breakpoints.$breakpoint-max-width-lg;
+        }
     }
     
     &__title {
