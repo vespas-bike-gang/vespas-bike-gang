@@ -34,10 +34,8 @@
     }
     
     &__description-wrapper {
-        position: relative;
         width: 1120px;
         overflow: hidden;
-        white-space: nowrap;
         margin-bottom: 1.5rem;
 
         @media(min-width: breakpoints.$breakpoint-lg) {
@@ -45,32 +43,48 @@
         }
     }
 
-    &__description {
-          display: flex;
-          width: max-content;
-          animation: scroll 20s linear infinite;
-          font-weight: 400;
-          font-size: 1.125rem;
+    &__description-slider {
+        $fontSize: 1.125rem;
+        
+        display: flex;
+        width: fit-content;
+        animation: scroll 20s linear infinite;
+        list-style: disc;
+        gap: calc($fontSize * 2);
 
-          @media(min-width: breakpoints.$breakpoint-lg) {
-            font-size: 1.75rem;
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            $fontSize: 1.75rem;
+
+            gap: calc($fontSize * 2);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
         }
     }
 
-    &__description-block {
-        white-space: nowrap;
-    }
+    &__description-item {
+        $fontSize: 1.125rem;
 
-    &__description-emphasis {
-        font-weight: 600;
+        white-space: nowrap;
+        margin-left: -4px;
+        font-weight: 400;
+        font-size: $fontSize;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            $fontSize: 1.75rem;
+
+            font-size: $fontSize;
+            margin-left: -14px;
+        }
     }
 
     @keyframes scroll {
         from {
-            transform: translateX(0);
+            transform: translateX(0.55%);
         }
         to {
-            transform: translateX(-100%);
+            transform: translateX(-33.3333%);
         }
-}
+    }
 }
