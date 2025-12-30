@@ -3,11 +3,14 @@
 .block-text-image-link {
     & {
         padding: 5rem 1.5rem;
-        max-width: breakpoints.$breakpoint-max-width-lg;
         display: flex;
         justify-content: space-between;
         width: 100%;
         margin: 0 auto;
+
+        @media(min-width: breakpoints.$breakpoint-lg) {
+            max-width: breakpoints.$breakpoint-max-width-lg;     
+        }
     }
 
     &__text-container {
@@ -44,21 +47,14 @@
         gap: 30px;
     }
 
-    &__image:first-child {
-        margin: auto 0 0 auto;
+    &__images-column {
+        gap: 30px;
+        display: flex;
+        flex-direction: column;
+
+        &:first-child {
+            margin-top: 76px;
+            align-items: end;
+        }
     }
-
-    &__image:nth-child(2) {
-        margin: auto auto 0 0;
-    }
-
-    &__image:nth-child(3) {
-        margin: 0 0 auto auto;
-    }
-
-    &__image:last-child {
-        margin: 0 auto auto 0;
-    }
-
-
 }

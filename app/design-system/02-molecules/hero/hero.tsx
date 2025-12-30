@@ -1,4 +1,5 @@
 import styles from './hero.module.scss'
+import { TextContentInterface } from '../../../entities/TextContentInterface'
 
 import Image from 'next/image'
 import { getEntriesByTitle, getAssetById } from '../../../../lib/contentful/contentful'
@@ -12,29 +13,35 @@ export default async function Hero() {
         "content_type": 'blockTitleDescriptionImage',
         "fields.title": 'Hero'
     })
-    const descriptionWithSymbols = {
-        emphasis: texts.description.content[0].content[0].value,
-    }
+    
+    const description = texts.description.content[0].content.map((textContent: TextContentInterface) => {
+        return textContent.content[0].content[0].value
+    })
 
     return (
         <div className={styles['hero']}>
             <div className={styles['hero__content']}>
                 <h1 className={styles['hero__title']}>{texts.heading}</h1>
                 <div className={styles['hero__description-wrapper']}>
-                    <p className={styles['hero__description']}>
-                        <span className={styles['hero__description-block']}>
-                            <b className={styles['hero__description-emphasis']}>
-                                {descriptionWithSymbols.emphasis}&#9679;
-                            </b>
-                            {texts.description.content[0].content[1].value}
-                        </span>
-                        <span className={styles['hero__description-block']}>
-                            <b className={styles['hero__description-emphasis']}>
-                                {texts.description.content[0].content[0].value}
-                            </b>
-                            {texts.description.content[0].content[1].value}
-                        </span>
-                    </p>
+                    <ul className={styles['hero__description-slider']}>
+                        { description.map((text: string, index: number) => (
+                            <li className={styles['hero__description-item']}>
+                                {index === 0 ? <b>{text}</b> : text}
+                            </li>
+                        ))}
+                        { description.map((text: string, index: number) => (
+                            <li className={styles['hero__description-item']}
+                                aria-hidden="true">
+                                {index === 0 ? <b>{text}</b> : text}
+                            </li>
+                        ))}
+                        { description.map((text: string, index: number) => (
+                            <li className={styles['hero__description-item']}
+                                aria-hidden="true">
+                                {index === 0 ? <b>{text}</b> : text}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <Image
                     className={styles['hero__image']}
